@@ -1,4 +1,3 @@
-- **Deployment Link:** https://stackblitz.com/~/github.com/hirensojitra/User-Management
 
 - **Time Taken:** 5 Hours
 

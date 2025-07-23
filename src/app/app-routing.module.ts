@@ -4,9 +4,9 @@ import { HomeComponent } from './home/home.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'users', component: UserListComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({
