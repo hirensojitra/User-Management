@@ -1,0 +1,192 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+$user-management-primary: mat.define-palette(mat.$indigo-palette);
+$user-management-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$user-management-warn: mat.define-palette(mat.$red-palette);
+
+$user-management-theme: mat.define-light-theme((
+  color: (
+    primary: $user-management-primary,
+    accent: $user-management-accent,
+    warn: $user-management-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+@include mat.all-component-themes($user-management-theme);
+
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  box-sizing: border-box;
+  background-color: #F5F7FA; /* Light grey background for the page */
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* Adjust as needed */
+}
+
+/* Angular Material Theme */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Custom Material Overrides */
+.mat-mdc-card {
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.mat-mdc-table {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mat-mdc-header-cell {
+  font-weight: 600 !important;
+  color: #1976d2 !important;
+}
+
+.mat-mdc-row:hover {
+  background-color: #f8f9fa !important;
+}
+
+/* Custom Classes */
+.page-header {
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+  color: white;
+  padding: 24px 0;
+  margin-bottom: 32px;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.search-container {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-field {
+  min-width: 300px;
+  flex: 1;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.status-chip {
+  border-radius: 16px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.status-active {
+  background-color: #e8f5e8;
+  color: #2e7d32;
+}
+
+.status-inactive {
+  background-color: #ffeaa7;
+  color: #f57c00;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-row .mat-mdc-form-field {
+  flex: 1;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.footer {
+  background-color: #37474f;
+  color: white;
+  text-align: center;
+  padding: 24px 0;
+  margin-top: 48px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-field {
+    min-width: unset;
+  }
+  
+  .form-row {
+    flex-direction: column;
+  }
+  
+  .actions-cell {
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .page-title {
+    font-size: 24px;
+  }
+}

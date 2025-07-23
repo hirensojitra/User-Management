@@ -1,0 +1,29 @@
+<mat-toolbar color="primary" class="app-toolbar">
+  <span class="app-title">User Management System</span>
+  <span class="spacer"></span>
+  <nav class="main-nav">
+    <a mat-button routerLink="/" routerLinkActive="active-link">
+      <mat-icon class="nav-icon">home</mat-icon>
+      Home
+    </a>
+    <a mat-button routerLink="/users" routerLinkActive="active-link">
+      <mat-icon class="nav-icon">people</mat-icon>
+      Users
+    </a>
+  </nav>
+</mat-toolbar>
+
+<!-- Main Content -->
+<main class="app-main-content">
+  <router-outlet></router-outlet>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2025 User Management System. Built with Angular & Material Design.</p>
+    <p class="footer-text">
+      Demonstrating modern Angular development practices with reactive forms, API integration, and responsive design.
+    </p>
+  </div>
+</footer>
