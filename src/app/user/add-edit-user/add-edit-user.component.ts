@@ -19,7 +19,7 @@ export class AddEditUserComponent implements OnInit {
     this.form = this.fb.group({
       id: [this.data.user?.id || null],
       name: [this.data.user?.name || '', [Validators.required, Validators.minLength(3)]],
-      email: [this.data.user?.email || '', [Validators.required, Validators.email]],
+      email: [this.data.user?.email || '', [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)]],
       phone: [this.data.user?.phone || '', [Validators.pattern(/^\+91-\d{3}-\d{3}-\d{4}$/)]], // Pattern for +91-XXX-XXX-XXXX
       role: [this.data.user?.role || 'User', Validators.required],
       status: [this.data.user?.status === 'Active' ? true : false, Validators.required]
