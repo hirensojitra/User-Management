@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="d-flex flex-column h-100 w-100 position-absolute">
+        <!-- Header -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+                <!-- Mobile Menu Toggle -->
+                <button class="btn btn-outline-light d-lg-none me-3" type="button" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- Logo -->
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <i class="fas fa-graduation-cap me-2 fs-4"></i>
+                    <span class="fw-bold">EduAdmin</span>
+                </a>
+
+                <!-- Right side items -->
+                <div class="d-flex align-items-center">
+                    <!-- Notifications -->
+                    <div class="dropdown me-3">
+                        <button class="btn btn-outline-light position-relative" type="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-bell"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                3
+                            </span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end notification-dropdown">
+                            <li>
+                                <h6 class="dropdown-header">Notifications</h6>
+                            </li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user-plus text-primary me-2"></i>New
+                                    student registered</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-upload text-success me-2"></i>Course
+                                    material uploaded</a></li>
+                            <li><a class="dropdown-item" href="#"><i
+                                        class="fas fa-exclamation-triangle text-warning me-2"></i>System maintenance
+                                    scheduled</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-center" href="#">View all notifications</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Admin Profile -->
+                    <div class="dropdown">
+                        <button class="btn btn-outline-light d-flex align-items-center" type="button"
+                            data-bs-toggle="dropdown">
+                            <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&fit=crop&crop=face"
+                                alt="Admin" class="rounded-circle me-2" width="32" height="32">
+                            <span class="d-none d-md-inline">Rajesh Shah</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-danger" href="#"><i
+                                        class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid flex-grow-1 d-flex flex-column">
+            <!-- Main Content Area -->
+            <div class="row equal-height-row 
+                    d-flex flex-wrap flex-grow-1">
+                <!-- Sidebar -->
+                <nav id="sidebarNav" class="d-lg-block sidebar collapse col-12 col-lg-3 col-xl-2 p-0">
+                    <div class="position-sticky pt-3">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#" data-section="dashboard">
+                                    <i class="fas fa-tachometer-alt me-2"></i>
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-section="courses">
+                                    <i class="fas fa-book me-2"></i>
+                                    Courses
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-section="instructors">
+                                    <i class="fas fa-chalkboard-teacher me-2"></i>
+                                    Instructors
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-section="students">
+                                    <i class="fas fa-user-graduate me-2"></i>
+                                    Students
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-section="reports">
+                                    <i class="fas fa-chart-line me-2"></i>
+                                    Reports
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-section="settings">
+                                    <i class="fas fa-cog me-2"></i>
+                                    Settings
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <!-- Main Content -->
+                <main class="col-12 col-lg-9 col-xl-10 px-4 d-flex flex-column position-relative p-0 overflow-y-auto">
+
+
+                    <div
+                        class="d-flex align-items-center pt-3 pb-2 mb-3 border-bottom sticky-top bg-light">
+                        <h1 class="h2">Dashboard</h1>
+                        <div class="btn-toolbar mb-2 mb-md-0 d-flex flex-row ms-auto align-items-center">
+                            <div class="btn-group me-2 mb-0">
+                                <button type="button"
+                                    class="btn btn-sm btn-outline-secondary mb-1 mb-md-0 me-md-1 d-flex align-items-center">
+                                    <i class="fas fa-share-alt ms-md-1 me-md-2"></i>
+                                    <span class="d-none d-md-inline">Share</span>
+                                </button>
+                                <button type="button"
+                                    class="btn btn-sm btn-outline-secondary mb-1 mb-md-0 d-flex align-items-center">
+                                    <i class="fas fa-download ms-md-1 me-md-2"></i>
+                                    <span class="d-none d-md-inline">Export</span>
+                                </button>
+                            </div>
+                            <button type="button" class="btn btn-sm btn-primary mb-1 mb-md-0 d-flex align-items-center">
+                                <i class="fas fa-plus ms-md-1 me-md-2"></i>
+                                <span class="d-none d-md-inline">New</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 overflow-y-auto main-container-box">
+
+                        <!-- Stats Cards -->
+                        <div class="row mb-4">
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    Total Courses
+                                                </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">42</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-book fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-success shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                    Total Students
+                                                </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">1,847</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-user-graduate fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-info shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                                    Active Instructors
+                                                </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">23</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-chalkboard-teacher fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-warning shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                    Enrollments This Month
+                                                </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">286</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row equal-height-row d-flex flex-wrap">
+                            <!-- Enrollment Chart -->
+                            <div class="col-lg-8 mb-4">
+                                <div class="card shadow h-100">
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Student Enrollments (Last 6
+                                            Months)
+                                        </h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart-area">
+                                            <canvas id="enrollmentChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Recent Activity -->
+                            <div class="col-lg-4 mb-4">
+                                <div class="card shadow">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Recent Activity</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="activity-item d-flex align-items-center mb-3">
+                                            <div
+                                                class="activity-icon bg-success rounded-circle d-flex align-items-center justify-content-center me-3">
+                                                <i class="fas fa-user-plus text-white"></i>
+                                            </div>
+                                            <div class="activity-content">
+                                                <div class="activity-title">New Student Registration</div>
+                                                <div class="activity-time text-muted small">Amit Patel joined
+                                                </div>
+                                                <div class="activity-timestamp text-muted small">2 hours ago</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="activity-item d-flex align-items-center mb-3">
+                                            <div
+                                                class="activity-icon bg-primary rounded-circle d-flex align-items-center justify-content-center me-3">
+                                                <i class="fas fa-upload text-white"></i>
+                                            </div>
+                                            <div class="activity-content">
+                                                <div class="activity-title">Course Material Upload</div>
+                                                <div class="activity-time text-muted small">Dr. Smith uploaded new
+                                                    content
+                                                </div>
+                                                <div class="activity-timestamp text-muted small">4 hours ago</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="activity-item d-flex align-items-center mb-3">
+                                            <div
+                                                class="activity-icon bg-info rounded-circle d-flex align-items-center justify-content-center me-3">
+                                                <i class="fas fa-sign-in-alt text-white"></i>
+                                            </div>
+                                            <div class="activity-content">
+                                                <div class="activity-title">Instructor Login</div>
+                                                <div class="activity-time text-muted small">Prof. Anderson logged in
+                                                </div>
+                                                <div class="activity-timestamp text-muted small">6 hours ago</div>
+                                            </div>
+                                        </div>
+                                        <div class="activity-item d-flex align-items-center mb-3">
+                                            <div
+                                                class="activity-icon bg-warning rounded-circle d-flex align-items-center justify-content-center me-3">
+                                                <i class="fas fa-edit text-white"></i>
+                                            </div>
+                                            <div class="activity-content">
+                                                <div class="activity-title">Course Updated</div>
+                                                <div class="activity-time text-muted small">JavaScript Fundamentals
+                                                    updated
+                                                </div>
+                                                <div class="activity-timestamp text-muted small">1 day ago</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center mt-3">
+                                        <a href="#" class="btn btn-sm btn-outline-primary">View All Activity</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="script.js"></script>
+</body>
+
+</html>
